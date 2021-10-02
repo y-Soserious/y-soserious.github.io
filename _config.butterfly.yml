@@ -1,0 +1,571 @@
+# Hexo Configuration
+## Docs: https://hexo.io/docs/configuration.html
+## Source: https://github.com/hexojs/hexo/
+
+# Site
+title: 临渊羡鱼
+# subtitle: 写后面个人配置项中了
+description: '不需要SEO所以不需要描述呢'
+keywords:
+author: ySoserious
+language: zh-CN
+timezone: ''
+
+# URL
+## Set your site url here. For example, if you use GitHub Page, set url as 'https://username.github.io/project'
+url: https://gitee.com/ysos
+permalink: :year/:month/:day/:title/
+permalink_defaults:
+pretty_urls:
+  trailing_index: true # Set to false to remove trailing 'index.html' from permalinks
+  trailing_html: true # Set to false to remove trailing '.html' from permalinks
+
+# Directory
+source_dir: source
+public_dir: public
+tag_dir: tags
+archive_dir: archives
+category_dir: categories
+code_dir: downloads/code
+i18n_dir: :lang
+skip_render:
+
+# Writing
+new_post_name: :title.md # File name of new posts
+default_layout: post
+titlecase: false # Transform title into titlecase
+external_link:
+  enable: true # Open external links in new tab
+  field: site # Apply to the whole site
+  exclude: ''
+filename_case: 0
+render_drafts: false
+post_asset_folder: false
+relative_link: false
+future: true
+highlight:
+  enable: true
+  line_number: true
+  auto_detect: false
+  tab_replace: ''
+  wrap: true
+  hljs: false
+prismjs:
+  enable: false
+  preprocess: true
+  line_number: true
+  tab_replace: ''
+
+# Home page setting
+# path: Root path for your blogs index page. (default = '')
+# per_page: Posts displayed per page. (0 = disable pagination)
+# order_by: Posts order. (Order by date descending by default)
+index_generator:
+  path: ''
+  per_page: 10
+  order_by: -date
+
+# Category & Tag
+default_category: uncategorized
+category_map:
+tag_map:
+
+# Metadata elements
+## https://developer.mozilla.org/en-US/docs/Web/HTML/Element/meta
+meta_generator: true
+
+# Date / Time format
+## Hexo uses Moment.js to parse and display date
+## You can customize the date format as defined in
+## http://momentjs.com/docs/#/displaying/format/
+date_format: YYYY-MM-DD
+time_format: HH:mm:ss
+## updated_option supports 'mtime', 'date', 'empty'
+updated_option: 'mtime'
+
+# Pagination
+## Set per_page to 0 to disable pagination
+per_page: 10
+pagination_dir: page
+
+# Include / Exclude file(s)
+## include:/exclude: options only apply to the 'source/' folder
+include:
+exclude:
+ignore:
+
+# Extensions
+## Plugins: https://hexo.io/plugins/
+## Themes: https://hexo.io/themes/
+theme: butterfly
+
+# Deployment
+## Docs: https://hexo.io/docs/one-command-deployment
+deploy:
+  type: 'git'
+  repo: 'git@github.com:y-Soserious/y-soserious.github.io.git'
+  branch: 'master'
+
+# 不使用butterfly自带的404界面
+# error_404:
+#   enable: false
+#   subtitle: "页面貌似回母星了呢！"
+#   background: /img/404.jpg
+# 自制404页面
+# 1.hexo new page 404  
+# 2.配置
+# title: 404
+# layout: false
+# comments: 404
+# permalink: /404
+# 再把html代码贴进去
+
+########################################以下为个人配置########################################
+
+# 网站标签页小图标
+favicon: /img/favi.ico
+
+# 菜单
+# 可以使用命令hexo new page xxxx新增自定义页面xxx，将页面对应的source下的xxxx文件夹中的md加个type: "xxxx"
+# 将对路径配置/xxxx/在下面菜单中即可多出新的菜单跳转到对应页面。
+# || 后表示使用的精灵图标
+menu:
+  首页: / || fas fa-home
+  时间轴: /archives/ || fas fa-archive
+  标签: /tags/ || fas fa-tags
+  分类: /categories/ || fas fa-folder-open
+  # 清单||fa fa-heartbeat:
+  #   音乐: /music/ || fas fa-music
+  #   照片: /images/ || fas fa-images
+  #   电影: /movies/ || fas fa-video
+  友链: /link/ || fas fa-link
+  关于: /about/ || fas fa-heart
+
+# 代码高亮主题：可选:darker,pale night,light,ocean,mac,mac light
+highlight_theme: pale night
+# 代码复制
+highlight_copy: true
+# true 全部代码框不展开，需点击>打开
+# false 代码框展开，有>点击按钮
+# none 不显示>按钮
+highlight_shrink: true 
+# 代码自动换行，个人认为会换行的代码影响阅读体验，不建议配置为true。
+# 如果一定要设置为true，设置时徐需要将渲染代码的line_number（这个参数在上面搜索）设置为false，
+code_word_wrap: false
+# 版本3.7.0以上可以配置，代码限制高度，可以设置超出xxx px（所以参数是配置单位为px的数值）时就隐藏下面部分的代码，点击后展开
+# 个人觉得有highlight_shrink就可以了，所以此处还是配了false
+highlight_height_limit: false # unit: px
+# 社交图标，可以设置font-awesome v5的精灵图
+# 格式为：图标名：url || 描述性文字
+social:
+  fab fa-github: https://github.com/y-Soserious || Github
+  fas fa-envelope: mailto:21475806@qq.com || Email
+# 因为主题UI的关系，主页文章选节只支持自动选节和文章页description。
+# 1.description： 只显示description
+# 2.both： 优先选择description，如果没有配置description，则显示自动选节的內容
+# 3.auto_excerpt：只显示自动选节
+# 4.false： 不显示文章內容
+index_post_content:
+  method: 2
+  length: 300 # if you set method to 2 or 3, the length need to config
+# 不显示主页顶部图片，默认false
+disable_top_img: false
+# 若你的disable_top_img设置为false，那么你可能不太喜欢默认的蓝色顶部，可以对其进行配置哟！
+# 设置默认的顶部图片，即所有的标签在没有顶部图时默认使用这个，下面是设置为渐变色，可以配置为img的url展示图片
+default_top_img: 'linear-gradient(20deg, #0062be, #925696, #cc426e, #fb0347)'
+# 每个标签都可以有自定义的顶部图片，例如归档的img可以如下设置为它是单独橘色（建议不要每个标签一个顶图，这样加载速度会比较慢）
+# archive_img: orange
+# 也可以将部分的顶图透明化或取消，transparent（透明），false（取消）
+# archive_img: false
+# 其它頁面 （tags/categories/自建頁面）和 文章頁 的 top_img ，請到對應的 md 頁面設置front-matter中的top_img
+
+# 文章封面（就首页显示的文章对应图片）
+# 文章的markdown文檔上,在Front-matter添加cover,並填上要顯示的圖片地址。
+# 如果不配置cover,可以設置顯示默認的cover.
+# 如果不想在首頁顯示cover,可以設置為false
+# cover:
+# 是否顯示文章封面
+index_enable: true
+aside_enable: true
+archives_enable: true
+# 封面顯示的位置
+# 三個值可配置 left , right , both
+position: both
+# 當沒有設置cover時，默認的封面顯示
+# 當配置多張圖片時,會隨機選擇一張作為cover.此時寫法應為
+default_cover: 
+  - https://cdn.jsdelivr.net/gh/jerryc127/CDN@latest/cover/default_bg.png
+  - https://cdn.jsdelivr.net/gh/jerryc127/CDN@latest/cover/default_bg2.png
+  - https://cdn.jsdelivr.net/gh/jerryc127/CDN@latest/cover/default_bg3.png
+# 在文章md中可以配置cover，文章的cover优先级更高
+
+# 文章meta显示
+# 显示文章相关信息
+post_meta:
+  page:
+    date_type: both # created or updated or both 主頁文章日期是創建日或者更新日或都顯示
+    date_format: relative # date/relative 顯示日期還是相對日期
+    categories: true # true or false 主頁是否顯示分類
+    tags: true # true or false 主頁是否顯示標籤
+    label: true # true or false 顯示描述性文字
+  post:
+    date_type: both # created or updated or both 文章頁日期是創建日或者更新日或都顯示
+    date_format: relative # date/relative 顯示日期還是相對日期
+    categories: true # true or false 文章頁是否顯示分類
+    tags: true # true or false 文章頁是否顯示標籤
+    label: true # true or false 顯示描述性文字
+
+# 文章版权
+# 為你的博客文章展示文章版權和許可協議。
+post_copyright:
+  enable: true
+  decode: false # 由於Hexo 4.1開始，默認對網址進行解碼，以至於如果是中文網址，會被解碼，可設置decode: true來顯示中文網址。
+  license: CC BY-NC-SA 4.0
+  license_url: https://creativecommons.org/licenses/by-nc-sa/4.0/ # https://creativecommons.org/licenses/by-nc-sa/4.0/
+
+# 文章打赏
+# 對於沒有提供二維碼的，可配置一張軟件的icon圖片，然後在link上添加相應的打賞鏈接。用户點擊圖片就會跳轉到鏈接去。
+# link可以不寫，會默認為圖片的鏈接。
+reward:
+  enable: true
+  QR_code:
+    - img: /img/wechat.jpg
+      link:
+      text: 微信
+    - img: /img/alipay.jpg
+      link:
+      text: 支付宝
+
+# TOC
+# 在文章頁，會有一個目錄，用於顯示TOC。
+toc:
+  enable: true
+  number: true
+  style_simple: true
+
+# 相关文章
+# 相關文章推薦的原理是根據文章tags的比重來推薦
+related_post:
+  enable: true
+  limit: 6 # 顯示推薦文章數目
+  date_type: created # or created or updated 文章日期顯示創建日或者更新日
+
+# 文章锚点
+# 開啟文章錨點後，當你在文章頁進行滾動時，文章鏈接會根據標題ID進行替換
+# (注意: 每替換一次，會留下一個歷史記錄。所以如果一篇文章有很多錨點的話，網頁的歷史記錄會很多。)
+# when you scroll in post , the url will update according to header id.
+anchor: true
+
+# 文章过期提醒，以最后更新时间为准
+noticeOutdate:
+  enable: true
+  style: flat # style: simple/flat
+  limit_day: 365 # When will it be shown
+  position: top # position: top/bottom
+  message_prev: 这篇文章已经...
+  message_next: 天没更新了呢！若是技术文章请注意版本问题。。。
+
+# 头像
+avatar:
+  img: /img/me.jpg
+  effect: false # true时头像会一直转圈
+
+# 图片描述，true时文章中的图片底下会有描述
+photofigcaption: true
+
+# 复制相关配置
+# 可配置網站是否可以複製、複製的內容是否添加版權信息
+# enable  是否開啟網站複製權限
+# copyright 複製的內容後面加上版權信息
+# enable  是否開啟複製版權信息添加
+# limit_count 字數限制，當複製文字大於這個字數限制時，將在複製的內容後面加上版權信息
+# # copy settings
+# copyright: Add the copyright information after copied content (複製的內容後面加上版權信息)
+copy:
+  enable: true
+  copyright:
+    enable: true
+    limit_count: 1 # 复制俩个字都要加版权，就是这么独裁
+
+# Footer 設置
+# 博客底部的展示
+footer:
+  owner:
+    enable: true
+    since: 2021
+# 頁腳自定義文本
+# custom_text是一個給你用來在頁腳自定義文本的選項。通常你可以在這裏寫聲明文本等。支持 HTML。
+custom_text: By ySoserious 
+
+# 侧边栏设置 
+aside:
+  enable: true # 使用侧边栏
+  hide: false # 隐藏侧边栏
+  button: true # 按钮
+  mobile: true # 手机页面（当显示宽度<768px时）是否显示侧边栏
+  position: right # left or right 置于左边还是右边
+  card_author:  # 作者名片板块
+    enable: true
+    description: 
+    button:
+      enable: true
+      icon: fab fa-github
+      text: Github
+      link: https://github.com/y-Soserious
+  card_announcement:  # 公告板块
+    enable: false
+    content: This is my Blog
+  card_recent_post: # 最新文章板块
+    enable: true
+    limit: 5 # if set 0 will show all
+    sort: date # date or updated
+  card_categories: # 分类板块
+    enable: true
+    limit: 8 # if set 0 will show all
+    expand: none # none/true/false
+  card_tags:  # 标签板块
+    enable: true
+    limit: 40 # if set 0 will show all
+    color: true # 标签加上颜色
+  card_archives: # 归档板块
+    enable: true
+    type: monthly # yearly or monthly
+    format: MMMM YYYY # eg: YYYY年MM月
+    order: -1 # Sort of order. 1, asc for ascending; -1, desc for descending
+    limit: 8 # if set 0 will show all
+  card_webinfo: # 网站资讯板块
+    enable: true
+    post_count: true
+    last_push_date: true
+
+# 不蒜子-访问人数统计，文章中会体现阅读量
+busuanzi:
+  site_uv: true
+  site_pv: true
+  page_pv: true
+
+# 网页开通时间
+# 格式: 月/日/年 時間
+# 也可以携程 年/月/日 时间
+runtimeshow:
+  enable: true
+  publish_date: 9/29/2021 00:00:00  
+
+
+# 侧边栏最新评论板块
+# 最新评论只會在刷新时才會去读取，並不会实时变化
+# 由于API有访问次数限制，为了避免过多调用，主题默认存取期限为10分钟。
+# 也就是说，调用后资料会存在localStorage中，10分钟內刷新网站只会去 localStorage 读。
+# 10分钟期限一过，刷新页面时才会去调取API读取最新数据。
+# newest_comments:
+#   enable: true
+#   sort_order: # Don't modify the setting unless you know how it works（是的，I don't know how it works...）
+#   limit: 6
+#   storage: 10 # 缓存时间10min
+#   avatar: true # 是否显示头像（评论哪来的头像？疑惑了）
+
+# 标签外挂（个人认为这个属于骚操作，可以忽略）
+# 给md语法新加花样写法（参考https://butterfly.js.org/posts/4aa8abbe/#%E6%A8%99%E7%B1%A4%E5%A4%96%E6%8E%9B%EF%BC%88Tag-Plugins%EF%BC%89）
+note:
+  # Note tag style values:
+  #  - simple    bs-callout old alert style. Default.
+  #  - modern    bs-callout new (v2-v3) alert style.
+  #  - flat      flat callout style with background, like on Mozilla or StackOverflow.
+  #  - disabled  disable all CSS styles import of note tag.
+  style: simple
+  icons: false
+  border_radius: 3
+  # Offset lighter of background in % for modern and flat styles (modern: -12 | 12; flat: -18 | 6).
+  # Offset also applied to label tag variables. This option can work with disabled note tag.
+  light_bg_offset: 0
+
+# 评论
+comments:
+  use:
+    - Valine  # 使用的评论服务商 Disqus/Disqusjs/Livere/Gitalk/Valine/Waline/Utterances/Facebook Comments/Twikoo
+  text: true # 是否显示评论服务商的名字
+  lazyload: false # 是否为评论开启懒加载，开启后，只有滚动到评论位置时才会加载评论所需要的资源（开启后，评论数则不显示）
+  count: true # 在顶部图显示评论数（开启懒加载后不生效）
+  card_post_count: true # 是否在首页文章卡片显示评论数（gitalk、livere 和 utterances 不支持评论数显示）
+# Valine配置 （参考文档https://valine.js.org/quickstart.html）
+valine:
+  appId: dpGS3JWnR46pTC81OMDqK59H-gzGzoHsz # leancloud application app id
+  appKey: iSBVHLyIiwbsNl0z3BcK9yz5 # leancloud application app key
+  pageSize: 10 # comment list page size
+  avatar: monsterid # 头像风格 可以从这个网站中选择-> https://valine.js.org/#/avatar
+  lang: zh-CN # i18n: zh-CN/zh-TW/en/ja
+  placeholder: 写评论要记得留下昵称啊！不然我怎么知道你是哪位？（或许不需要我知道？那你也必须编一个
+  guest_info: nick,mail,link #valine comment header info (nick/mail/link)
+  recordIP: true # Record reviewer IP
+  serverURLs: # This configuration is suitable for domestic custom domain name users, overseas version will be automatically detected (no need to manually fill in)
+  bg: /img/comment_bg.png # valine background
+  emojiCDN: # emoji CDN
+  enableQQ: false # enable the Nickname box to automatically get QQ Nickname and QQ Avatar
+  requiredFields: nick # required fields (nick/mail)
+  visitor: false
+  option:
+
+# 在线聊天和分享的功能不太感冒就不集成了。。。感兴趣可以移步->https://butterfly.js.org/posts/ceeb73f/#%E5%9C%A8%E7%B6%AB%E8%81%8A%E5%A4%A9
+
+# 搜索 
+# 需要先执行命令安装 npm install hexo-generator-search --save
+# 若有文章不需要搜索，文章头配置indexing: false
+local_search:
+  enable: true
+search:
+  path: search.xml # 文件路径。默认情况下是 。如果文件扩展是，输出格式将是JSON。否则，XML 格式文件将被导出。
+  field: post # 要搜索的搜索范围 post/page/all 
+  content: true # 是否包含每篇文章的全部内容。如果， 生成的结果只涵盖标题和其他元信息没有主体。默认情况下是 。
+  template: ./search.xml # （可选） - 通往自定义 XML 模板的路径
+
+# 美化
+# 自定义主题色
+theme_color:
+  enable: true
+  main: "#49B1F5"
+  paginator: "#00c4b6"
+  button_hover: "#FF7242"
+  text_selection: "#00c4b6"
+  link_color: "#99a9bf"
+  meta_color: "#858585"
+  hr_color: "#A4D8FA"
+  code_foreground: "#F47466"
+  code_background: "rgba(27, 31, 35, .05)"
+  toc_color: "#00c4b6"
+  blockquote_padding_color: "#49b1f5"
+  blockquote_background_color: "#49b1f5"
+
+# 网站背景
+# 默认白色,可以配置图片或颜色
+# 图片格式 url(http://xxxxxx.com/xxx.jpg)
+# 颜色（HEX值/RGB值/顔色單詞/漸變色)
+# 留空 不显示背景
+# 留意: 如果你的网站根目录不是'/',使用本地图片时，需加上你的根目录。
+# 例如：网站是 https://yoursite.com/blog,引用一张img/xx.png图片，则设置background为 `url(/blog/img/xx.png)
+background:
+
+# footer 背景
+# 留空/false  顯示默認的顔色
+# 圖片格式 url(http://xxxxxx.com/xxx.jpg)
+# 顏色（HEX值/RGB值/顔色單詞/漸變色)
+# true 顯示跟 top_img 一樣
+footer_bg: true
+
+# 打字效果
+activate_power_mode:
+  enable: true
+  colorful: true # open particle animation (冒光特效)
+  shake: false #  open shake (抖動特效)
+  mobile: false
+
+# 背景特效（蜘蛛丝？）
+canvas_nest:
+  enable: true
+  color: '0,0,255' #color of lines, default: '0,0,0'; RGB values: (R,G,B).(note: use ',' to separate.)
+  opacity: 0.7 # the opacity of line (0~1), default: 0.5.
+  zIndex: -1 # z-index property of the background, default: -1.
+  count: 99 # the number of lines, default: 99.
+  mobile: false # false 手機端不顯示 true 手機端顯示
+
+# 鼠标点击特效
+# 點擊出現文字，文字可自行修改
+ClickShowText:
+  enable: true
+  text:
+    - 鼠标寿命-1
+  fontSize: 15px
+  random: false # 文字隨機顯示
+  mobile: false
+# 点击爱心
+#click_heart:
+#  enable: true
+#  mobile: false  
+
+# 頁面美化
+# 會改變ol、ul、h1-h5的樣式
+beautify:
+  enable: true
+  field: site # site 全站/post 仅文章页
+  title-prefix-icon: '\f0c1'
+  title-prefix-icon-color: "#F47466"
+
+# 全局字体
+# Global font settings
+# Don't modify the following settings unless you know how they work (非必要不要修改)
+font:
+  global-font-size:
+  code-font-size:
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Helvetica Neue", Lato, Roboto, "PingFang SC", "Microsoft JhengHei", "Microsoft YaHei", sans-serif
+  code-font-family: consolas, Menlo, "PingFang SC", "Microsoft JhengHei", "Microsoft YaHei", sans-serif
+
+# Blog标题字体（左上角網站名字 主頁居中網站名字
+blog_title_font:
+  font_link: https://fonts.googleapis.com/css?family=Titillium+Web&display=swap
+  font-family: Titillium Web, 'PingFang SC', 'Hiragino Sans GB', 'Microsoft JhengHei', 'Microsoft YaHei', sans-serif
+
+# 网站副标题
+# 可設置主頁中顯示的網站副標題或者喜歡的座右銘。
+subtitle:
+  enable: true
+  # 打字效果
+  effect: true
+  # 循環或者只打字一次
+  loop: false
+  # source調用第三方服務
+  # source: false 關閉調用
+  # source: 1  調用搏天api的隨機語錄（簡體） 
+  # source: 2  調用一言網的一句話（簡體） 
+  # source: 3  調用一句網（簡體） 
+  # source: 4  調用今日詩詞（簡體
+  # subtitle 會先顯示 source , 再顯示 sub 的內容
+  source: false
+  # 如果有英文逗號' , ',請使用轉義字元 &#44;
+  # 如果有英文雙引號' " ',請使用轉義字元 &quot;
+  # 開頭不允許轉義字元，如需要，請把整個句子用雙引號包住
+  # 例如 ”&quotNever put off till tomorrow what you can do today&quot"
+  # 如果關閉打字效果，subtitle只會顯示sub的第一行文字
+  sub:
+    - 你，一会看我，一会看云
+    - 我觉得，你看我时很远，你看云时很近
+
+# 主頁top_img顯示大小
+# 主頁設置
+# 默認top_img全屏，site_info在中間
+# 使用默認, 都無需填寫（建議默認）
+index_site_info_top: # 主頁標題距離頂部距離  例如 300px/300em/300rem/10%
+index_top_img_height:  300px #主頁top_img高度 例如 300px/300em/300rem  不能使用百分比
+
+
+# 頁面加載動畫preloader
+preloader: true
+
+# 字数统计
+# 先执行命令 npm install hexo-wordcount --save
+wordcount:
+  enable: true
+  post_wordcount: true
+  min2read: true
+  total_wordcount: true
+
+# 图片点击打开大图
+fancybox: true
+
+# 美化弹窗
+snackbar:
+  enable: true
+  position: top-center # 可選 top-left / top-center / top-right / bottom-left / bottom-center / bottom-right
+  bg_light: '#49b1f5' #light mode時彈窗背景
+  bg_dark: '#2d3035' #dark mode時彈窗背景
+
+# 有些 CSS 並不是所有瀏覽器都支持，需要增加對應的前綴才會生效。
+# css_prefix: true # 真的出了兼容问题再用
+
+# 中英文之間添加空格
+pangu:
+  enable: false # 需要时再打开
+  field: post # site/post
+
+# 关闭分享（我觉得并没有什么用，为什么分享不会复制网址呢？这么笨别看我的博客了）
+sharejs:
+  enable: false
+  sites: facebook,twitter,wechat,weibo,qq  #想要显示的內容
